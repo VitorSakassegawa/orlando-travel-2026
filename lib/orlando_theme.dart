@@ -53,7 +53,7 @@ class OrlandoTheme {
         type: BottomNavigationBarType.fixed,
         elevation: 10,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: Colors.white,
         elevation: 2,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
@@ -88,7 +88,7 @@ class OrlandoTheme {
         selectedItemColor: sageLight,
         unselectedItemColor: Colors.grey,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: const Color(0xFF1E261F),
         elevation: 4,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
