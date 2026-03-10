@@ -1,21 +1,35 @@
 #!/usr/bin/env bash
-set -e # Interromper em caso de erro
+set -ex # Mostra comandos e para em erro
+
+echo "--- INICIANDO BUILD FLUTTER ---"
+echo "Diretório atual: $(pwd)"
+ls -la
 
 # 1. Instalar o Flutter se não existir
 if [ ! -d "flutter" ]; then
-  echo "Clonando Flutter SDK..."
+  echo "Clonando Flutter SDK (branch stable)..."
   git clone https://github.com/flutter/flutter.git -b stable --depth 1
 fi
 
-# 2. Adicionar ao PATH
-export PATH="$PATH:$(pwd)/flutter/bin"
+# 2. Adicionar ao PATH de forma absoluta
+FLUTTER_PATH="$(pwd)/flutter/bin"
+export PATH="$PATH:$FLUTTER_PATH"
+
+echo "Verificando se o comando flutter existe..."
+which flutter || (echo "ERRO: Comando flutter não encontrado no PATH" && exit 1)
 
 # 3. Rodar o setup
-flutter doctor -v
+flutter --version
 
 # 4. Habilitar Web
 flutter config --enable-web
 
-# 5. Instalar dependências e Build
+# 5. Instalar dependências e construir
+echo "Rodando flutter pub get..."
 flutter pub get
+
+echo "Rodando flutter build web..."
 flutter build web --release
+
+echo "--- BUILD FINALIZADO COM SUCESSO ---"
+ls -la build/web
