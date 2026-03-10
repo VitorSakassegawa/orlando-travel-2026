@@ -27,10 +27,10 @@ class OrlandoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Orlando 2026 ✦ Travel Planner',
+      title: 'Orlando 2026',
       debugShowCheckedModeBanner: false,
-      theme: OrlandoTheme.lightTheme,
-      darkTheme: OrlandoTheme.darkTheme,
+      theme: OrlandoTheme.lightTheme(),
+      darkTheme: OrlandoTheme.darkTheme(),
       themeMode: ThemeMode.system, // Auto dark/light
       home: const MainScreen(),
     );
