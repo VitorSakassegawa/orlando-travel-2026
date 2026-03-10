@@ -17,6 +17,7 @@ class OrlandoTheme {
   static const Color sky = Color(0xFF5B9BC5);
   static const Color gold = Color(0xFFC19A3E);
   static const Color coral = Color(0xFFD45D5D);
+  static const Color muted = Color(0xFF717D6E); // Added missing muted color
 
   static ThemeData lightTheme() {
     return ThemeData(
@@ -33,7 +34,7 @@ class OrlandoTheme {
         displayLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.w900, color: ink),
         displayMedium: GoogleFonts.playfairDisplay(fontWeight: FontWeight.w700, color: ink),
         titleLarge: GoogleFonts.dmSans(fontWeight: FontWeight.w700, color: ink),
-        labelMedium: GoogleFonts.jetbrainsMono(letterSpacing: 2.0, fontSize: 10, color: sageDark),
+        labelMedium: GoogleFonts.jetBrainsMono(letterSpacing: 2.0, fontSize: 10, color: sageDark),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
@@ -81,7 +82,7 @@ class OrlandoTheme {
         displayLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.w900, color: Colors.white),
         displayMedium: GoogleFonts.playfairDisplay(fontWeight: FontWeight.w700, color: Colors.white),
         titleLarge: GoogleFonts.dmSans(fontWeight: FontWeight.w700, color: Colors.white),
-        labelMedium: GoogleFonts.jetbrainsMono(letterSpacing: 2.0, fontSize: 10, color: sageLight),
+        labelMedium: GoogleFonts.jetBrainsMono(letterSpacing: 2.0, fontSize: 10, color: sageLight),
       ),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,

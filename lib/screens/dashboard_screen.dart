@@ -113,52 +113,66 @@ class _TimelineItem extends StatelessWidget {
                 width: 12,
                 height: 12,
                 decoration: BoxDecoration(
-                      Colors.transparent,
-                    ],
-                  ),
+                  color: OrlandoTheme.sage,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.white, width: 2),
                 ),
               ),
+              if (!isLast)
+                Expanded(
+                  child: Container(
+                    width: 2,
+                    color: OrlandoTheme.sand,
+                  ),
+                ),
+            ],
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(day, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: OrlandoTheme.muted)),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: tag == 'PARQUE' ? OrlandoTheme.sky.withOpacity(0.1) : OrlandoTheme.sand.withOpacity(0.3),
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                        child: Text(tag, style: TextStyle(fontSize: 9, fontWeight: FontWeight.w900, color: tag == 'PARQUE' ? OrlandoTheme.sky : OrlandoTheme.muted)),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Text(event, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 15)),
+                  Text(time, style: const TextStyle(color: OrlandoTheme.muted, fontSize: 12)),
+                ],
+              ),
             ),
-          ],
-        ),
-        const SizedBox(height: 16),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
 
-class _TimelinePreview extends StatelessWidget {
+class _SectionHeader extends StatelessWidget {
+  final String title;
+  final String action;
+  const _SectionHeader({required this.title, required this.action});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: OrlandoTheme.sageWash.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: OrlandoTheme.sageMist),
-      ),
-      child: const Row(
-        children: [
-          Text('🎡', style: TextStyle(fontSize: 24)),
-          SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Universal Studios',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-                Text(
-                  'Amanhã • Inteiro • Cansaço Baixo',
-                  style: TextStyle(color: OrlandoTheme.muted, fontSize: 12),
-                ),
-              ],
-            ),
-          ),
-          Icon(Icons.chevron_right, color: OrlandoTheme.muted),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(title, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 18)),
+        Text(action, style: Theme.of(context).textTheme.labelMedium?.copyWith(color: OrlandoTheme.sage)),
+      ],
     );
   }
 }

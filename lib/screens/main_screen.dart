@@ -51,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
             children: [
               Text(_titles[_selectedIndex]),
               const Spacer(),
-              _SyncStatusIcon(),
+              const _SyncStatusIcon(),
             ],
           ),
           elevation: 0,
@@ -68,7 +68,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         child: Padding(
           padding: EdgeInsets.only(
-            top: _selectedIndex == 0 ? 0 : 8.0, // Correction #1: 8px gap
+            top: _selectedIndex == 0 ? 0 : 8.0, 
           ),
           child: _screens[_selectedIndex],
         ),
@@ -81,17 +81,47 @@ class _MainScreenState extends State<MainScreen> {
               blurRadius: 20,
               offset: const Offset(0, -5),
             ),
-          ),
-        ],
+          ],
+        ),
+        child: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: (index) => setState(() => _selectedIndex = index),
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.dashboard_rounded), label: 'Geral'),
+            BottomNavigationBarItem(icon: Icon(Icons.fact_check_rounded), label: 'Checklist'),
+            BottomNavigationBarItem(icon: Icon(Icons.payments_rounded), label: 'Gastos'),
+            BottomNavigationBarItem(icon: Icon(Icons.pie_chart_rounded), label: 'Budget'),
+            BottomNavigationBarItem(icon: Icon(Icons.auto_awesome_rounded), label: 'Chat IA'),
+          ],
+        ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: (index) => ref.read(navigationIndexProvider.notifier).state = index,
-        items: const [
-          BottomNavigationBarItem(icon: Text('📋', style: TextStyle(fontSize: 20)), label: 'Checklist'),
-          BottomNavigationBarItem(icon: Text('🪄', style: TextStyle(fontSize: 20)), label: 'IA'),
-          BottomNavigationBarItem(icon: Text('💳', style: TextStyle(fontSize: 20)), label: 'Gastos'),
-          BottomNavigationBarItem(icon: Text('📊', style: TextStyle(fontSize: 20)), label: 'Orçamento'),
+    );
+  }
+}
+
+class _SyncStatusIcon extends StatelessWidget {
+  const _SyncStatusIcon();
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      decoration: BoxDecoration(
+        color: OrlandoTheme.sage.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 8,
+            height: 8,
+            decoration: const BoxDecoration(
+              color: Colors.green,
+              shape: BoxShape.circle,
+            ),
+          ),
+          const SizedBox(width: 6),
+          const Text('SYNC', style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: OrlandoTheme.muted)),
         ],
       ),
     );
