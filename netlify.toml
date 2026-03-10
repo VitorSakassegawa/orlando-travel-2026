@@ -1,8 +1,8 @@
 [build]
-  # O comando que o Netlify vai rodar para instalar o Flutter e compilar o app
-  command = "bash .netlify/build.sh"
+  # O comando atualizado que o Netlify vai rodar
+  command = "bash scripts/build.sh"
   
-  # A pasta que o Netlify deve publicar (onde o Flutter gera o index.html)
+  # A pasta que o Netlify deve publicar
   publish = "build/web"
 
 [build.environment]

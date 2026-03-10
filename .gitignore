@@ -7,8 +7,9 @@ build/
 .pub-cache/
 .pub/
 
-# Netlify
+# Netlify local config
 .netlify/
+!scripts/build.sh
 
 # OS
 .DS_Store
