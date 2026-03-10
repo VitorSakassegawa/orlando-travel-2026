@@ -1,0 +1,15 @@
+# Flutter/Dart
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+
+# Netlify
+.netlify/
+
+# OS
+.DS_Store
+Thumbs.db

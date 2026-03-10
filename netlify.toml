@@ -1,0 +1,15 @@
+[build]
+  # O comando que o Netlify vai rodar para instalar o Flutter e compilar o app
+  command = "bash .netlify/build.sh"
+  
+  # A pasta que o Netlify deve publicar (onde o Flutter gera o index.html)
+  publish = "build/web"
+
+[build.environment]
+  FLUTTER_VERSION = "3.24.0"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; connect-src *;"
+    Service-Worker-Allowed = "/"
