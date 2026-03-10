@@ -21,8 +21,10 @@ which flutter || (echo "ERRO: Comando flutter não encontrado no PATH" && exit 1
 # 3. Rodar o setup
 flutter --version
 
-# 4. Habilitar Web
+# 4. Habilitar Web e Configurar Projeto
 flutter config --enable-web
+echo "Configurando projeto para Web..."
+flutter create . --platforms web --force
 
 # 5. Instalar dependências e construir
 echo "Rodando flutter pub get..."
