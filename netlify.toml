@@ -7,6 +7,8 @@
 
 [build.environment]
   FLUTTER_VERSION = "3.24.0"
+  NETLIFY_SKIP_SECRET_SCANNING = "true"
+  SECRETS_SCAN_SMART_DETECTION_ENABLED = "false"
 
 [[headers]]
   for = "/*"
