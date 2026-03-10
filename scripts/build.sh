@@ -24,7 +24,7 @@ flutter --version
 # 4. Habilitar Web e Configurar Projeto
 flutter config --enable-web
 echo "Configurando projeto para Web..."
-flutter create . --platforms web --force
+flutter create . --platforms web
 
 # 5. Instalar dependências e construir
 echo "Rodando flutter pub get..."
